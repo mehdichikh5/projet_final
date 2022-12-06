@@ -8,6 +8,7 @@ import sklearn
 from scipy.io import arff
 app = Flask(__name__)
 
+import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 model = pickle.load(open(dir_path + '\\model.pkl', 'rb'))
@@ -16,7 +17,6 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 columns =  ["net_profit","total_liabilities","profit_operating_activities","profit_on_sales","sales_minus_cost"]
 columns_to_keep = ["Attr1","Attr2","Attr27","Attr35","Attr56"]
-import os
 @app.route('/')
 def home():
     return render_template('index.html')
