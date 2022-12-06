@@ -7,7 +7,11 @@ from sklearn.metrics import accuracy_score
 import sklearn
 from scipy.io import arff
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+model = pickle.load(open(dir_path + '\\model.pkl', 'rb'))
+
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 columns =  ["net_profit","total_liabilities","profit_operating_activities","profit_on_sales","sales_minus_cost"]
